@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { ActionCableProvider } from 'react-actioncable-provider';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+    <ActionCableProvider url={`http://localhost:8000/cable`}>
+      <App />
+    </ActionCableProvider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

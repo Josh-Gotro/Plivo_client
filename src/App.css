@@ -34,7 +34,7 @@ h1 {
 
 .HiForm {
   width: 80%;
-  font-size: 2.1rem;
+  font-size: 1.4rem;
   border-radius: 15px;
   margin: 8%;
 
@@ -42,13 +42,13 @@ h1 {
 }
 
 input {
-  border: 2px solid rgb(212, 160, 55) !important;
-  background-color: whitesmoke !important;
+  border: 2px solid rgb(212, 160, 55);
+  background-color: whitesmoke;
   height: 5vh;
-  min-height: 30px;
+  min-height: 8vh;
   margin: 4px 0;
   box-sizing: border-box;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   padding-left: 1.5%;
 }
 
@@ -65,9 +65,9 @@ input::placeholder {
   border: 2px solid rgb(212, 160, 55);
   background-color: whitesmoke;
   color: rgb(212, 175, 55);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   width: 90%;
-  height: 15vh;
+  height: 20vh;
   min-height: 100px;
   margin-top: 6px;
   outline-color: rgb(212, 160, 55);
@@ -76,19 +76,20 @@ input::placeholder {
 
 #comment::placeholder {
   color: rgb(212, 175, 55);
+
 }
 
 #hiButton {
   /* border: 2px solid rgb(212, 160, 55); */
   background-color: whitesmoke;
   width: 22.5%;
-  height: 3vh;
+  height: 7vh;
   min-height: 40px;
   border: none;
   color: rgb(212, 175, 55);
   text-decoration: none;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-top: 1%;
 }
 
