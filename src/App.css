@@ -1,38 +1,168 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    color: rgb(212, 175, 55);
+    scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+    text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.HiContainer {
+  display: inline-grid;
+  align-items: start;
+  grid-template-columns:
+    [col-1-end col-2-start]35%
+    [col-2-end col-3-start]65%
+    [col-3-end];
+  padding-top: 8%;
+  width: 100%;
+}
+
+.HiTitle {
+  margin: 8%;
+  margin-top: 15%;
+  justify-self: end;
+  text-align: end;
+}
+
+h1 {
+  font-size: 8rem;
+}
+
+.HiForm {
+  width: 80%;
+  font-size: 2.1rem;
+  border-radius: 15px;
+  margin: 8%;
+
+  padding: 2%;
+}
+
+input {
+  border: 2px solid rgb(212, 160, 55) !important;
+  background-color: whitesmoke !important;
+  height: 5vh;
+  min-height: 30px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  padding-left: 1.5%;
+}
+
+input::placeholder {
+  color: rgb(212, 175, 55);
+}
+
+#phone {
+  width: 45%; 
+  color: rgb(212, 175, 55);
+}
+
+#comment {
+  border: 2px solid rgb(212, 160, 55);
+  background-color: whitesmoke;
+  color: rgb(212, 175, 55);
+  font-size: 1.6rem;
+  width: 90%;
+  height: 15vh;
+  min-height: 100px;
+  margin-top: 6px;
+  outline-color: rgb(212, 160, 55);
+  padding-left: 1.5%;
+}
+
+#comment::placeholder {
+  color: rgb(212, 175, 55);
+}
+
+#hiButton {
+  /* border: 2px solid rgb(212, 160, 55); */
+  background-color: whitesmoke;
+  width: 22.5%;
+  height: 3vh;
+  min-height: 40px;
+  border: none;
+  color: rgb(212, 175, 55);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 1%;
+}
+
+#hiButton:focus {
+  /* border: none; */
+  outline-color: rgb(212, 175, 55);
+}
+
+input:focus {
+  border: none;
+  outline-color: rgb(212, 160, 55);
+}
+
+/* *********************************** */
+/* MOBILE */
+
+@media (max-width: 775px) {
+  .HiContainer {
+    display: inline-block;
+    grid-template-rows:
+      [row-1-end row-2-start]20%
+      [row-2-end row-3-start]80%
+      [row-3-end];
+    text-align: center;
+
+    padding-top: 5%;
+    width: 100%;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  #hello {
+    grid-row-start: row-1-start;
+    grid-row-end: row-1-end;
   }
-  to {
-    transform: rotate(360deg);
+
+  .HiForm {
+    width: 80%;
+    font-size: 2.1rem;
+    border-radius: 15px;
+    grid-row-start: row-2-start;
+    grid-row-end: row-2-end;
+  }
+
+  .HiTitle {
+    text-align: start;
+    margin-left: 12%;
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  #name {
+    width: 90%;
+  }
+
+  #email {
+    width: 90%;
+  }
+
+  input {
+    border: 2px solid rgb(212, 160, 55);
+    background-color: rgba(212, 160, 55, 0.534);
+    height: 5vh;
+    font-size: 0.8rem;
+  }
+
+  #comment {
+    height: 20vh;
+    font-size: 0.8rem;
+  }
+
+  #hiButton {
+    margin-top: 3%;
+    width: 45vw;
+    height: 6vh;
   }
 }
