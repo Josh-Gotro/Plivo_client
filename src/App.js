@@ -21,7 +21,7 @@ function App() {
     return () => {
       abortController.abort();
     };
-  }, [url + '/messages']);
+  }, []);
 
   // Fetch data and set to state
   const fetchData = async () => {
@@ -53,6 +53,7 @@ function App() {
     })
       .then(resp => resp.json())
       .then(data => {
+        console.log("message succesfully sent", data)
         newUpdate(data)
       })
     r.target.reset();
@@ -71,7 +72,6 @@ function App() {
   // toggle state boolean for history
   function toggleHistory() {
     setShowHistory(!showHistory)
-    console.log(showHistory)
   }
 
   // current state boolean triggers modal 
@@ -86,7 +86,7 @@ function App() {
   // recent texts appear only when modal is visible
   function recentHistory() {
     return history && history.map(msg => {
-      return <><History key={Math.random()} message={msg} /></>
+      return <><History key={msg.id} message={msg} /></>
     })
   }
 
@@ -136,7 +136,7 @@ function App() {
           </form>
         </div>
         <div onClick={() => setShowRunning(!showRunning)} className={showHide()}>
-          <div >
+          <div className="RecentHistory">
             {recentHistory()}
           </div>
         </div>

@@ -10,7 +10,8 @@ const Search = () => {
 
     //translate date for plivo api
     function cnvrt(date) {
-        return date.replace("T", " ")
+        let newDate = new Date(date).toISOString();
+        return newDate.replace("T", " ").replace(".000Z", "")
     }
 
     // post form data to db, optimistically render to page 
@@ -19,13 +20,14 @@ const Search = () => {
             .then(resp => resp.json())
             .then(data => {
                 setResults(data)
-                console.log(data, results)
+                // console.log(data)
             })
         // r.target.reset();
     }
 
     // recent texts appear only when modal is visible
     function searchHistory() {
+        console.log(results)
         return results && results.map(msg => {
             return <><Running key={Math.random()} message={msg} /></>
         })
@@ -36,12 +38,12 @@ const Search = () => {
             <div className="Search">
                 <div className="h2Form">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div>Begin  <input name="begin" type="datetime-local" ref={register({ required: true })} /></div>
-                        <div>End  <input name="end" type="datetime-local" ref={register({ required: true })} /></div>
+                        Begin  <br /><input name="begin" type="datetime-local" ref={register({ required: true })} /><br /><br />
+                        End <br /> <input name="end" type="datetime-local" ref={register({ required: true })} /><br/>
                         <button id="aButton" type="submit" value="Submit">Search</button>
                     </form>
                 </div>
-                <div className="H2Title"><h2>select <br />range</h2></div>
+                <div className="H2Title"><h1>select <br />range</h1></div>
             </div>
             <div >
                 {searchHistory()}

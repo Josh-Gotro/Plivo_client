@@ -29,6 +29,11 @@ html {
   width: 100%;
 }
 
+.RecentHistory {
+  overflow: auto;
+  height: 100vh;
+}
+
 .HiTitle {
   margin: 8%;
   margin-top: 13%;
@@ -146,7 +151,7 @@ button {
 #bButton {
   /* border: 2px solid rgb(212, 160, 55); */
   color: whitesmoke;
-  background-color: rgb(230, 116, 135);
+  background-color: rgb(250, 131, 179);
   width: 100vw;
   height: 3vh;
   min-height: 20px;
@@ -157,7 +162,7 @@ button {
 #cButton {
   /* border: 2px solid rgb(212, 160, 55); */
   color: whitesmoke;
-  background-color: rgb(230, 116, 135);
+  background-color: rgb(245, 130, 149);
   width: 100vw;
   height: 3vh;
   min-height: 20px;
@@ -241,10 +246,17 @@ input:focus {
     width: 100%;
   }
 
-  #hello {
-    grid-row-start: row-1-start;
-    grid-row-end: row-1-end;
-  }
+  .Search {
+    display: inline-block;
+    grid-template-rows:
+      [row-1-end row-2-start]20%
+      [row-2-end row-3-start]80%
+      [row-3-end];
+    text-align: center;
+
+    padding-top: 5%;
+    width: 100%;
+}
 
   .HiForm {
     width: 80%;
@@ -254,26 +266,39 @@ input:focus {
     grid-row-end: row-2-end;
   }
 
+  .h2Form {
+    width: 80%;
+    font-size: 2.1rem;
+    border-radius: 15px;
+    /* margin: 0; */
+    grid-row-start: row-2-start;
+    grid-row-end: row-2-end;
+    text-align: center;
+}
+
   .HiTitle {
     text-align: start;
     margin-left: 12%;
   }
 
+  .H2Title {
+    text-align: start;
+    margin-left: 12%;
+}
+
   h1 {
     font-size: 6rem;
+    text-align: center;
   }
 
-  #name {
-    width: 90%;
-  }
-
-  #email {
-    width: 90%;
+  h2 {
+    font-size: 6rem;
+    text-align: center;
   }
 
   input {
     border: 2px solid rgb(212, 160, 55);
-    background-color: rgba(212, 160, 55, 0.534);
+    background-color: whitesmoke;
     height: 5vh;
     font-size: 0.8rem;
   }
