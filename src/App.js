@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { useForm } from "react-hook-form";
-import { ActionCable } from "react-actioncable-provider";
+import { ActionCableConsumer } from "react-actioncable-provider";
 import History from "./Running";
 import Search from "./Search";
 
@@ -93,7 +93,7 @@ function App() {
 
   return (
     <>
-      <ActionCable
+      <ActionCableConsumer
         channel={{ channel: "MessagesChannel" }}
         onReceived={newUpdate}
       />
