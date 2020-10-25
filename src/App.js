@@ -9,7 +9,12 @@ function App() {
   const abortController = new AbortController();
   const { register, handleSubmit, errors } = useForm();
   const [history, setHistory] = useState([])
+  const [showHistory, setShowHistory] = useState(false)
   const url = 'http://localhost:8000';
+
+  const newUpdate = (msg) => {
+    setHistory((prev) => [...prev, msg])
+  }
   
   const fetchData = async () => {
     try {
@@ -17,6 +22,7 @@ function App() {
       const data = await (await response).json();
       // console.log(data)
       setHistory(data)
+      console.log(history)
     } catch (e) {
       console.log(e);
     }
@@ -40,10 +46,10 @@ function App() {
         })
       })
       .then(resp => resp.json())
-      // .then(data => {
-      //   console.log(data)
-      // })
-      // r.target.reset();
+      .then(data => {
+        newUpdate(data)
+      })
+      r.target.reset();
     }
     
     useEffect(() => {
@@ -53,12 +59,26 @@ function App() {
       };
     }, [url + '/messages']);
 
-    function showHistory(){
-      console.log(history)
+    function toggleHistory(){
+      setShowHistory(!showHistory)
+      console.log(history, showHistory)
     }
+
+    function showHide() {
+    if (showHistory != true) {
+      return "Modal"
+    } else {
+      return "Modal-Open"
+    }
+  }
+
 
   return (
     <>
+      <ActionCable
+        channel={{ channel: "MessagesChannel" }}
+        onReceived={newUpdate}
+      />
       <div id="hello" className="HiContainer">
         <div className="HiTitle">
           <h1 style={{ color: "rgb(212, 175, 55)" }}>send an<br />sms</h1>
@@ -96,9 +116,12 @@ function App() {
 
             <button id="hiButton" type="submit" value="Submit" >send</button>
           </form>
-            <button id="hiButton" onClick={() => showHistory()}>
+            <button id="hiButton" onClick={() => toggleHistory()}>
               Text History
             </button>
+        </div>
+        <div onClick={()=> setShowHistory(!showHistory)} className={showHide()}>
+          <div className="Full">{console.log(history)}</div>
         </div>
       </div>
 
