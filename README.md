@@ -39,7 +39,7 @@ ___
 Notes:
 
 - All messages sent through the browser will be sent from your Plivo phone number. 
-- When entering phone number for the recipient, only include integers and include the country code and area code. 
+- When entering phone number for the recipient, enter only integers and include both the country code and area code. 
 
 ***
 ***
