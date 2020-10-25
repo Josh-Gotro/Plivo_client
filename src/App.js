@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { useForm } from "react-hook-form";
 import { ActionCable } from "react-actioncable-provider";
+import History from "./Running";
+import Search from "./Search";
 
 
 
@@ -9,67 +11,83 @@ function App() {
   const abortController = new AbortController();
   const { register, handleSubmit, errors } = useForm();
   const [history, setHistory] = useState([])
+  const [showRunning, setShowRunning] = useState(false)
   const [showHistory, setShowHistory] = useState(false)
   const url = 'http://localhost:8000';
 
-  const newUpdate = (msg) => {
-    setHistory((prev) => [...prev, msg])
-  }
-  
+  // As page loads, fetch data
+  useEffect(() => {
+    fetchData();
+    return () => {
+      abortController.abort();
+    };
+  }, [url + '/messages']);
+
+  // Fetch data and set to state
   const fetchData = async () => {
     try {
       const response = fetch(url + '/messages', { signal: abortController.signal });
       const data = await (await response).json();
-      // console.log(data)
-      setHistory(data)
-      console.log(history)
+      setHistory(data.reverse())
     } catch (e) {
       console.log(e);
     }
   };
-  
+
+  // post form data to db, optimistically render to page 
   const onSubmit = (data, r) => {
     console.log(Number(data.phone))
-    fetchData();
     fetch(url + '/send', {
       // fetch(`https://guarded-taiga-97709.herokuapp.com/messages`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Text: data.content,
-          From: "+15125185935",
-          To: `+${data.phone}`,
-          isoutgoing: true,
-        })
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        Text: data.content,
+        From: "+15125185935",
+        To: `+${data.phone}`,
+        isoutgoing: true,
       })
+    })
       .then(resp => resp.json())
       .then(data => {
         newUpdate(data)
       })
-      r.target.reset();
-    }
-    
-    useEffect(() => {
-      fetchData();
-      return () => {
-        abortController.abort();
-      };
-    }, [url + '/messages']);
+    r.target.reset();
+  }
 
-    function toggleHistory(){
-      setShowHistory(!showHistory)
-      console.log(history, showHistory)
-    }
+  // state update for optimistic render
+  const newUpdate = (msg) => {
+    setHistory((prev) => [msg, ...prev])
+  }
 
-    function showHide() {
-    if (showHistory != true) {
-      return "Modal"
-    } else {
+  // toggle state boolean for running texts
+  function toggleRunning() {
+    setShowRunning(!showRunning)
+  }
+
+  // toggle state boolean for history
+  function toggleHistory() {
+    setShowHistory(!showHistory)
+    console.log(showHistory)
+  }
+
+  // current state boolean triggers modal 
+  function showHide() {
+    if (showRunning === true) {
       return "Modal-Open"
+    } else {
+      return "Modal"
     }
+  }
+
+  // recent texts appear only when modal is visible
+  function recentHistory() {
+    return history && history.map(msg => {
+      return <><History key={Math.random()} message={msg} /></>
+    })
   }
 
 
@@ -81,7 +99,7 @@ function App() {
       />
       <div id="hello" className="HiContainer">
         <div className="HiTitle">
-          <h1 style={{ color: "rgb(212, 175, 55)" }}>send an<br />sms</h1>
+          <h1>send an<br />sms</h1>
         </div>
         <div className="HiForm">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -114,17 +132,22 @@ function App() {
             /><br />
             {errors.phone && errors.phone.message}<br />
 
-            <button id="hiButton" type="submit" value="Submit" >send</button>
+            <button id="aButton" type="submit" value="Submit" >send</button>
           </form>
-            <button id="hiButton" onClick={() => toggleHistory()}>
-              Text History
-            </button>
         </div>
-        <div onClick={()=> setShowHistory(!showHistory)} className={showHide()}>
-          <div className="Full">{console.log(history)}</div>
+        <div onClick={() => setShowRunning(!showRunning)} className={showHide()}>
+          <div >
+            {recentHistory()}
+          </div>
         </div>
       </div>
-
+      <button id="bButton" onClick={() => toggleRunning()}>
+        Running Text
+      </button><br />
+      {showHistory ? <Search/> : null}
+      <button id="cButton" onClick={() => toggleHistory()}>
+        Search
+      </button>
     </>
   );
 }
