@@ -97,7 +97,7 @@ function App() {
         channel={{ channel: "MessagesChannel" }}
         onReceived={newUpdate}
       />
-      <div id="hello" className="HiContainer">
+      <div className="HiContainer">
         <div className="HiTitle">
           <h1>send an<br />sms</h1>
         </div>
