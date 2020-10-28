@@ -87,7 +87,6 @@ function App() {
   // recent texts appear only when modal is visible
   function recentHistory() {
     return history && history.map(msg => {
-      console.log(history)
       return <><History key={msg.id} message={msg} /></>
     })
   }
