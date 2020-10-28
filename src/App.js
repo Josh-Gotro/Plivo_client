@@ -14,7 +14,7 @@ function App() {
   const [showRunning, setShowRunning] = useState(false)
   const [showHistory, setShowHistory] = useState(false)
   // const url = 'http://localhost:8000';
-  const url = "http://guarded-taiga-97709.herokuapp.com"
+  const url = "https://guarded-taiga-97709.herokuapp.com"
 
   // As page loads, fetch data
   useEffect(() => {
