@@ -7,7 +7,8 @@ import { ActionCableProvider } from 'react-actioncable-provider';
 
 ReactDOM.render(
   // <React.StrictMode>
-    <ActionCableProvider url={`http://localhost:8000/cable`}>
+    // <ActionCableProvider url={`http://localhost:8000/cable`}>
+  <ActionCableProvider url={`wss://guarded-taiga-97709.herokuapp.com/cable`}>
       <App />
     </ActionCableProvider>,
   // </React.StrictMode>,
