@@ -29,6 +29,7 @@ function App() {
     try {
       const response = fetch(url + '/messages', { signal: abortController.signal });
       const data = await (await response).json();
+      console.log("initial messages loaded", data)
       setHistory(data.reverse())
     } catch (e) {
       console.log(e);
@@ -37,12 +38,6 @@ function App() {
 
   // post form data to db, optimistically render to page 
   const onSubmit = (data, r) => {
-    console.log("data stringify", JSON.stringify({
-      Text: data.content,
-      From: "+15125185935",
-      To: `+${data.phone}`,
-      isoutgoing: true,
-    }))
     console.log(Number(data.phone))
     fetch(url + '/send', {
       method: "POST",
