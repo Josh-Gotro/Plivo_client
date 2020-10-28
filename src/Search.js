@@ -6,7 +6,8 @@ import Running from "./Running"
 const Search = () => {
     const { register, handleSubmit } = useForm();
     const [results, setResults] = useState([])
-    const url = 'http://localhost:8000';
+    // const url = 'http://localhost:8000';
+    const url = 'https://guarded-taiga-97709.herokuapp.com/'
 
     //translate date for plivo api
     function cnvrt(date) {

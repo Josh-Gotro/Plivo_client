@@ -13,7 +13,8 @@ function App() {
   const [history, setHistory] = useState([])
   const [showRunning, setShowRunning] = useState(false)
   const [showHistory, setShowHistory] = useState(false)
-  const url = 'http://localhost:8000';
+  // const url = 'http://localhost:8000';
+  const url = "https://guarded-taiga-97709.herokuapp.com/"
 
   // As page loads, fetch data
   useEffect(() => {
@@ -38,7 +39,6 @@ function App() {
   const onSubmit = (data, r) => {
     console.log(Number(data.phone))
     fetch(url + '/send', {
-      // fetch(`https://guarded-taiga-97709.herokuapp.com/messages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
