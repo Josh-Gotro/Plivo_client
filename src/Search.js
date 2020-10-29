@@ -31,7 +31,9 @@ const Search = () => {
     function searchHistory() {
         console.log(results)
         return results && results.map(msg => {
-            return <><Running key={Math.random()} message={msg} /></>
+            if(msg !== null){ 
+                return <><Running key={Math.random()} message={msg} /></>
+            }
         })
     }
 
