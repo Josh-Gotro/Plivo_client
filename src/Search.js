@@ -22,9 +22,8 @@ const Search = () => {
             .then(resp => resp.json())
             .then(data => {
                 setResults(data)
-                console.log("data after submit/fetch !!! !!!",data)
             })
-        // r.target.reset();
+        r.target.reset();
     }
 
     // recent texts appear only when modal is visible
@@ -32,7 +31,7 @@ const Search = () => {
         console.log(results)
         return results && results.map(msg => {
             if(msg !== null){ 
-                return <><Running key={Math.random()} message={msg} /></>
+                return <><Running key={msg.MessageUUID} message={msg} /></>
             }
         })
     }
