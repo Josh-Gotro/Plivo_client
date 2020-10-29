@@ -1,21 +1,21 @@
 * {
-    margin: 0;
-    padding: 0;
-    color: rgb(212, 175, 55);
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  color: rgb(212, 175, 55);
+  scroll-behavior: smooth;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 html {
-    overflow: scroll;
-    overflow-x: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 
 .HiContainer {
@@ -82,10 +82,10 @@ h2 {
   width: 80%;
   font-size: 1.4rem;
   border-radius: 15px;
-  margin-right: 8% ;
-  margin-left: 8% ;
-  margin-bottom: 6% ;
-  margin-top: 2% ;
+  margin-right: 8%;
+  margin-left: 8%;
+  margin-bottom: 6%;
+  margin-top: 2%;
 
   padding: 2%;
   justify-self: end;
@@ -103,13 +103,12 @@ input {
   padding-left: 1.5%;
 }
 
-
 input::placeholder {
   color: rgb(212, 175, 55);
 }
 
 #phone {
-  width: 45%; 
+  width: 45%;
   color: rgb(212, 175, 55);
 }
 
@@ -128,7 +127,6 @@ input::placeholder {
 
 #comment::placeholder {
   color: rgb(212, 175, 55);
-
 }
 
 button {
@@ -139,7 +137,6 @@ button {
 
 #aButton {
   background-color: whitesmoke;
-  /* border: 2px solid rgb(212, 160, 55); */
   color: rgb(212, 175, 55);
   width: 22.5%;
   height: 7vh;
@@ -149,7 +146,6 @@ button {
 }
 
 #bButton {
-  /* border: 2px solid rgb(212, 160, 55); */
   color: whitesmoke;
   background-color: rgb(250, 131, 179);
   width: 100vw;
@@ -160,7 +156,6 @@ button {
 }
 
 #cButton {
-  /* border: 2px solid rgb(212, 160, 55); */
   color: whitesmoke;
   background-color: rgb(245, 130, 149);
   width: 100vw;
@@ -171,7 +166,6 @@ button {
 }
 
 button:focus {
-  /* border: none; */
   outline-color: rgb(212, 175, 55);
 }
 
@@ -215,7 +209,6 @@ input:focus {
 .Sender {
   color: rgb(212, 160, 55);
   text-align: left;
-  /* margin-top: 1%; */
   margin-left: 30%;
   border-bottom: 1px dotted;
 }
@@ -223,11 +216,8 @@ input:focus {
 .Receiver {
   color: rgb(230, 116, 135);
   text-align: right;
-    /* margin-top: 1%; */
-      margin-right: 30%;
-
+  margin-right: 30%;
   border-bottom: 1px dotted;
-
 }
 
 /* *********************************** */
@@ -256,7 +246,7 @@ input:focus {
 
     padding-top: 5%;
     width: 100%;
-}
+  }
 
   .HiForm {
     width: 80%;
@@ -270,25 +260,14 @@ input:focus {
     width: 80%;
     font-size: 2.1rem;
     border-radius: 15px;
-    /* margin: 0; */
     grid-row-start: row-2-start;
     grid-row-end: row-2-end;
     text-align: center;
-}
+  }
 
   .HiTitle {
     text-align: start;
     margin-left: 12%;
-  }
-
-  #bButton {
-    min-height: 70px;
-    background-color: rgb(212, 160, 55);
-  }
-
-  #cButton {
-    min-height: 70px;
-    background-color: rgb(212, 160, 55);
   }
 
   h1 {
@@ -305,12 +284,26 @@ input:focus {
     border: 2px solid rgb(212, 160, 55);
     background-color: whitesmoke;
     height: 5vh;
-    font-size: 0.8rem;
+    font-size: 1.3rem;
   }
 
   #comment {
     height: 20vh;
     font-size: 0.8rem;
+  }
+
+  #aButton {
+    width: 35%;
+  }
+
+  #bButton {
+    min-height: 70px;
+    background-color: rgb(212, 160, 55);
+  }
+
+  #cButton {
+    min-height: 70px;
+    background-color: rgb(212, 160, 55);
   }
 
   #hiButton {
