@@ -29,7 +29,6 @@ function App() {
     try {
       const response = fetch(url + '/messages', { signal: abortController.signal });
       const data = await (await response).json();
-      console.log("initial messages loaded", data)
       setHistory(data.reverse())
     } catch (e) {
       console.log(e);
@@ -54,7 +53,6 @@ function App() {
     })
       .then(resp => resp.json())
       .then(data => {
-        console.log("message succesfully sent", data)
         newUpdate(data)
       })
     r.target.reset();
@@ -62,9 +60,7 @@ function App() {
 
   // state update for optimistic render
   const newUpdate = (msg) => {
-    if(!history.includes(msg)){ 
       setHistory((prev) => [msg, ...prev])
-    }
   }
 
   // toggle state boolean for running texts

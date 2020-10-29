@@ -17,11 +17,12 @@ const Search = () => {
 
     // post form data to db, optimistically render to page 
     const onSubmit = (data, r) => {
+        console.log("data before fetch", data)
         fetch(url + `/smslog?gte=${cnvrt(data.begin)}&lte=${cnvrt(data.end)}`)
             .then(resp => resp.json())
             .then(data => {
                 setResults(data)
-                // console.log(data)
+                console.log("data after submit/fetch !!! !!!",data)
             })
         // r.target.reset();
     }
