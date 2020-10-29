@@ -62,7 +62,9 @@ function App() {
 
   // state update for optimistic render
   const newUpdate = (msg) => {
-    setHistory((prev) => [msg, ...prev])
+    if(!history.includes(msg)){ 
+      setHistory((prev) => [msg, ...prev])
+    }
   }
 
   // toggle state boolean for running texts
