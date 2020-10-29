@@ -281,10 +281,15 @@ input:focus {
     margin-left: 12%;
   }
 
-  .H2Title {
-    text-align: start;
-    margin-left: 12%;
-}
+  #bButton {
+    min-height: 70px;
+    background-color: rgb(212, 160, 55);
+  }
+
+  #cButton {
+    min-height: 70px;
+    background-color: rgb(212, 160, 55);
+  }
 
   h1 {
     font-size: 6rem;
