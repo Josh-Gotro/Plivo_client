@@ -280,6 +280,10 @@ input:focus {
     text-align: center;
   }
 
+  textarea {
+    font-size: 1.3rem;
+  }
+
   input {
     border: 2px solid rgb(212, 160, 55);
     background-color: whitesmoke;
