@@ -9,15 +9,14 @@ const Search = () => {
     // const url = 'http://localhost:8000';
     const url = 'https://guarded-taiga-97709.herokuapp.com'
 
-    //translate date for plivo api
+    //Convert local date to UTC. Modify output to match Plivo requirements.
     function cnvrt(date) {
         let newDate = new Date(date).toISOString();
         return newDate.replace("T", " ").replace(".000Z", "")
     }
 
-    // post form data to db, optimistically render to page 
+    // Pass params to Rails. Rails sends req to Plivo. Results saved to state. 
     const onSubmit = (data, r) => {
-        console.log("data before fetch", data)
         fetch(url + `/smslog?gte=${cnvrt(data.begin)}&lte=${cnvrt(data.end)}`)
             .then(resp => resp.json())
             .then(data => {
@@ -26,9 +25,8 @@ const Search = () => {
         r.target.reset();
     }
 
-    // recent texts appear only when modal is visible
+    // Show messages held in state. visible if modal is open. 
     function searchHistory() {
-        console.log(results)
         return results && results.map(msg => {
             if(msg !== null){ 
                 return <><Running key={msg.MessageUUID} message={msg} /></>

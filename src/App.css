@@ -212,7 +212,7 @@ input:focus {
   transition: all 0.25s ease-out;
 }
 
-.Red {
+.Sender {
   color: rgb(212, 160, 55);
   text-align: left;
   /* margin-top: 1%; */
@@ -220,7 +220,7 @@ input:focus {
   border-bottom: 1px dotted;
 }
 
-.Green {
+.Receiver {
   color: rgb(230, 116, 135);
   text-align: right;
     /* margin-top: 1%; */
@@ -312,5 +312,13 @@ input:focus {
     margin-top: 3%;
     width: 45vw;
     height: 6vh;
+  }
+
+  .Sender {
+    margin-left: 20%;
+  }
+
+  .Receiver {
+    margin-right: 20%;
   }
 }
