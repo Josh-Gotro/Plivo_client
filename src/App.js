@@ -46,7 +46,7 @@ function App() {
       },
       body: JSON.stringify({
         Text: data.content,
-        From: "+15125185935",
+        From: "+15125822277",
         To: `+${data.phone}`,
         isoutgoing: true,
       })
@@ -100,6 +100,8 @@ function App() {
         <div className="HiTitle">
           <h1>send an<br />sms</h1>
         </div>
+
+          {/* Send-SMS Form */}
         <div className="HiForm">
           <form onSubmit={handleSubmit(onSubmit)}>
             <textarea
