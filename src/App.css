@@ -125,6 +125,23 @@ input::placeholder {
   padding-left: 1.5%;
 }
 
+#gif {
+  border: 2px solid rgb(212, 160, 55);
+  background-color: whitesmoke;
+  color: rgb(212, 175, 55);
+  font-size: 1.8rem;
+  width: 90%;
+  height: 10vh;
+  min-height: 100px;
+  margin-top: 6px;
+  outline-color: rgb(212, 160, 55);
+  padding-left: 1.5%;
+}
+
+#gif::placeholder {
+  color: rgb(212, 175, 55);
+}
+
 #comment::placeholder {
   color: rgb(212, 175, 55);
 }
@@ -294,6 +311,19 @@ input:focus {
   #comment {
     height: 20vh;
     font-size: 0.8rem;
+  }
+
+  #gif {
+    border: 2px solid rgb(212, 160, 55);
+    background-color: whitesmoke;
+    color: rgb(212, 175, 55);
+    font-size: 1.8rem;
+    width: 90%;
+    height: 20vh;
+    min-height: 100px;
+    margin-top: 6px;
+    outline-color: rgb(212, 160, 55);
+    padding-left: 1.5%;
   }
 
   #aButton {

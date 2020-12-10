@@ -48,6 +48,7 @@ function App() {
         Text: data.content,
         From: "+15125822277",
         To: `+${data.phone}`,
+        MediaUrl: `${data.gif}`,
         isoutgoing: true,
       })
     })
@@ -60,7 +61,7 @@ function App() {
 
   // state update for optimistic render
   const newUpdate = (msg) => {
-      setHistory((prev) => [msg, ...prev])
+    setHistory((prev) => [msg, ...prev])
   }
 
   // toggle state boolean for running texts
@@ -98,10 +99,10 @@ function App() {
       />
       <div className="HiContainer">
         <div className="HiTitle">
-          <h1>send an<br />sms</h1>
+          <h1>send an<br />mms</h1>
         </div>
 
-          {/* Send-SMS Form */}
+        {/* Send-SMS Form */}
         <div className="HiForm">
           <form onSubmit={handleSubmit(onSubmit)}>
             <textarea
@@ -115,6 +116,17 @@ function App() {
               }
             /><br />
             {errors.content && "Please include a message"}<br />
+
+            <textarea
+              name="mms"
+              placeholder="gif URL"
+              id="gif"
+              ref={
+                register({
+                  required: true
+                })
+              }
+            /><br /><br />
 
             <input
               name="phone"
@@ -145,10 +157,12 @@ function App() {
       <button id="bButton" onClick={() => toggleRunning()}>
         Running Text
       </button><br />
-      {showHistory ? <Search/> : null}
+      {showHistory ? <Search /> : null}
       <button id="cButton" onClick={() => toggleHistory()}>
         Search
       </button>
+
+
     </>
   );
 }
