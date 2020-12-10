@@ -112,7 +112,7 @@ input::placeholder {
   color: rgb(212, 175, 55);
 }
 
-#comment {
+#comment, #gif {
   border: 2px solid rgb(212, 160, 55);
   background-color: whitesmoke;
   color: rgb(212, 175, 55);
@@ -125,7 +125,7 @@ input::placeholder {
   padding-left: 1.5%;
 }
 
-#comment::placeholder {
+#comment::placeholder, #gif::placeholder {
   color: rgb(212, 175, 55);
 }
 

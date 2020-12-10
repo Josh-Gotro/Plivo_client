@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { ActionCableConsumer } from "react-actioncable-provider";
 import History from "./Running";
 import Search from "./Search";
-
+import Mms from "./Mms";
 
 
 function App() {
@@ -149,6 +149,7 @@ function App() {
       <button id="cButton" onClick={() => toggleHistory()}>
         Search
       </button>
+      <Mms/>
     </>
   );
 }
